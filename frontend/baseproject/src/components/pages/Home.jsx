@@ -272,7 +272,7 @@ function Home() {
                 <option value="">Select time</option>
                 {TIME_SLOTS.map((time) => (
                   <option key={time} value={time}>
-                    {time}
+                    {t}
                   </option>
                 ))}
               </select>
@@ -346,6 +346,9 @@ function Home() {
           <button type="button">Explore Offers</button>
         </article>
       </section>
+
+
+
 
       <section className="cp-promo-banner">
         <div className="cp-promo-copy">
