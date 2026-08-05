@@ -1,0 +1,128 @@
+/* ComfortPlace design system — Bootstrap 5 custom theme */
+:root {
+  --cp-primary: #145a73;
+  --cp-primary-dark: #0d4257;
+  --cp-secondary: #b78a46;
+  --cp-success: #198754;
+  --cp-danger: #b94545;
+  --cp-warning: #d49a28;
+  --cp-light: #f6f8f8;
+  --cp-dark: #182b35;
+  --cp-muted: #667782;
+  --cp-border: #d9e2e4;
+  --cp-card: #fff;
+  --cp-radius: 1rem;
+  --cp-shadow: 0 10px 28px rgba(24, 43, 53, .08);
+  --cp-shadow-hover: 0 16px 36px rgba(24, 43, 53, .14);
+  --bs-primary: var(--cp-primary);
+  --bs-secondary: #667782;
+  --bs-success: var(--cp-success);
+  --bs-danger: var(--cp-danger);
+  --bs-warning: var(--cp-warning);
+  --bs-body-bg: var(--cp-light);
+  --bs-body-color: var(--cp-dark);
+  --bs-border-color: var(--cp-border);
+  --bs-font-sans-serif: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+body { background: var(--cp-light); color: var(--cp-dark); font-family: var(--bs-font-sans-serif); }
+main { min-height: calc(100vh - 160px); }
+a { color: var(--cp-primary); }
+a:hover { color: var(--cp-primary-dark); }
+h1, h2, h3, h4, h5, h6 { color: var(--cp-dark); font-weight: 700; letter-spacing: -.02em; }
+
+.btn, .cp-button, .cp-dashboard-button, .cp-dashboard-action-button, .cp-modal-actions button, .cp-search-grid button, .cp-owner-room-rates-header button {
+  border-radius: .7rem; font-weight: 700; min-height: 42px; padding: .6rem 1rem; transition: transform .18s ease, box-shadow .18s ease, background-color .18s ease, border-color .18s ease;
+}
+.btn:hover:not(:disabled), .cp-button:hover:not(:disabled), .cp-dashboard-button:hover:not(:disabled), .cp-dashboard-action-button:hover:not(:disabled) { transform: translateY(-1px); }
+.btn:focus-visible, button:focus-visible, a:focus-visible { outline: 3px solid rgba(20,90,115,.25); outline-offset: 2px; }
+.btn-primary, .cp-button-primary, .cp-dashboard-button, .cp-search-grid button { background: var(--cp-primary); border-color: var(--cp-primary); color: #fff; }
+.btn-primary:hover, .cp-button-primary:hover, .cp-dashboard-button:hover, .cp-search-grid button:hover { background: var(--cp-primary-dark); border-color: var(--cp-primary-dark); color: #fff; }
+.btn-secondary, .cp-button-secondary { background: #fff; border: 1px solid var(--cp-border); color: var(--cp-dark); }
+.btn-secondary:hover, .cp-button-secondary:hover { background: #edf4f4; color: var(--cp-primary-dark); }
+.btn-outline-primary { color: var(--cp-primary); border-color: var(--cp-primary); }
+.btn-outline-primary:hover { background: var(--cp-primary); border-color: var(--cp-primary); }
+.btn-danger, .cp-button-danger { background: var(--cp-danger); border-color: var(--cp-danger); color: #fff; }
+.btn-success { background: var(--cp-success); border-color: var(--cp-success); }
+.btn:disabled, .cp-button:disabled { opacity: .62; cursor: not-allowed; transform: none; }
+
+.card, .cp-auth-card, .cp-profile-card, .cp-support-card, .cp-dashboard-panel, .cp-dashboard-summary-card, .cp-popular-cities-wrap, .cp-search-form {
+  border: 1px solid var(--cp-border); border-radius: var(--cp-radius); box-shadow: var(--cp-shadow); background: var(--cp-card);
+}
+.card { overflow: hidden; }
+.cp-card-hover, .cp-dashboard-hotel-card, .cp-city-chip, .cp-hotel-card { transition: transform .2s ease, box-shadow .2s ease; }
+.cp-card-hover:hover, .cp-dashboard-hotel-card:hover, .cp-city-chip:hover, .cp-hotel-card:hover { transform: translateY(-3px); box-shadow: var(--cp-shadow-hover); }
+
+.form-control, .form-select, textarea, select, input:not([type=checkbox]):not([type=radio]) { border-color: var(--cp-border); border-radius: .65rem; min-height: 44px; color: var(--cp-dark); }
+.form-control:focus, .form-select:focus, textarea:focus, select:focus, input:focus { border-color: var(--cp-primary); box-shadow: 0 0 0 .25rem rgba(20,90,115,.13); }
+.form-check-input:checked { background-color: var(--cp-primary); border-color: var(--cp-primary); }
+.form-label, label { color: var(--cp-dark); font-weight: 650; }
+.invalid-feedback, .cp-error { color: var(--cp-danger); }
+.table { --bs-table-hover-bg: #edf5f5; --bs-table-border-color: var(--cp-border); }
+.table thead th { color: var(--cp-muted); font-size: .78rem; text-transform: uppercase; letter-spacing: .06em; }
+.badge, .status, .cp-dashboard-status, .cp-profile-status { border-radius: 999px; font-weight: 700; padding: .4rem .7rem; }
+
+/* Shared app shell */
+.cp-navbar-wrap { padding: .65rem 1rem; background: rgba(13, 66, 87, .97); border-bottom-color: rgba(255,255,255,.14); }
+.cp-navbar { max-width: 1200px; }
+.cp-brand { color: #fff; font-size: 1.3rem; }
+.cp-nav-link { color: #e8f2f3; transition: color .2s ease, background .2s ease; }
+.cp-nav-link:hover { color: #fff; background: rgba(255,255,255,.12); }
+.cp-active { background: var(--cp-secondary); color: #fff; }
+.cp-nav-links { align-items: center; flex-wrap: wrap; }
+.cp-logout-button { border-radius: .6rem; }
+.cp-site-footer { background: #0d2d39; }
+
+/* Authentication and responsive page containers */
+.login-page, .cp-auth-page { display: grid; place-items: center; padding: 2rem 1rem 3rem; background: radial-gradient(circle at 8% 12%, #ffebc8 0%, transparent 36%), radial-gradient(circle at 86% 0%, #d4f0ea 0%, transparent 32%), linear-gradient(145deg, #fffef9 0%, #f7fbff 100%); }
+.login-page .row { width: 100%; margin: 0; }
+.login-page .row > [class*="col-"] { width: 100%; max-width: 480px; padding: 0; }
+.login-card, .cp-auth-card { width: 100%; max-width: 480px; }
+.login-mark { background: var(--cp-primary); }
+.cp-auth-card .login-mark { background: linear-gradient(135deg, var(--cp-gold), var(--cp-gold-deep)); }
+.cp-auth-card { padding: 2rem; }
+.cp-auth-card form { display: grid; gap: .5rem; }
+.cp-auth-card input, .cp-auth-card select { width: 100%; margin-bottom: .5rem; padding: .65rem .8rem; }
+.cp-auth-card button[type=submit] { margin-top: .75rem; }
+
+/* Bootstrap replacement classes for checkout and confirmation pages */
+.cp-page { padding: 2rem 1rem 3rem; background: var(--cp-light); }
+.cp-container { max-width: 1140px; margin: auto; }
+.cp-narrow-container { max-width: 760px; }
+.cp-detail-panel { background: #f1f6f6; }
+.cp-city-chip { overflow: hidden; }
+.cp-city-chip-image { position: absolute; inset: 0; z-index: -2; width: 100%; height: 100%; object-fit: cover; }
+.cp-city-banner { position: relative; overflow: hidden; isolation: isolate; }
+.cp-city-banner-image { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: -2; }
+.cp-city-banner::before { content: ''; position: absolute; inset: 0; z-index: -1; background: linear-gradient(90deg, rgba(6,6,10,.94), rgba(6,6,10,.72) 56%, rgba(6,6,10,.2)); }
+.cp-page-head { display:flex; justify-content:space-between; align-items:end; gap:1rem; margin-bottom:1.75rem; }
+.cp-eyebrow { color: var(--cp-primary); text-transform:uppercase; letter-spacing:.12em; font-size:.78rem; font-weight:800; margin:0 0 .4rem; }
+.cp-checkout-grid { display:grid; grid-template-columns:minmax(0,1fr) 360px; gap:1.5rem; align-items:start; }
+.cp-summary-card { position:sticky; top:5.5rem; }
+.cp-summary-head { background: var(--cp-primary); color:#fff; padding:1.25rem 1.5rem; }
+.cp-summary-head h2, .cp-summary-head p { color:#fff; margin:0; }
+.cp-stay-card { display:grid; grid-template-columns:180px 1fr; }
+.cp-stay-card img { width:100%; height:100%; min-height:220px; object-fit:cover; }
+.cp-detail-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:1rem; border-top:1px solid var(--cp-border); margin-top:1rem; padding-top:1rem; }
+.cp-detail-grid span { display:block; color:var(--cp-muted); font-size:.8rem; }
+.cp-payment-option { width:100%; display:flex; gap:.75rem; align-items:center; text-align:left; border:1px solid var(--cp-border); background:#fff; border-radius:.75rem; padding:1rem; }
+.cp-payment-option.active { border-color:var(--cp-primary); background:#edf6f6; }
+.cp-icon-circle { display:grid; place-items:center; width:42px; height:42px; flex:0 0 42px; border-radius:.7rem; background:#e7f0f1; color:var(--cp-primary); }
+.cp-payment-option.active .cp-icon-circle { background:var(--cp-primary); color:#fff; }
+.cp-summary-lines > div { display:flex; justify-content:space-between; gap:1rem; margin:.75rem 0; }
+.cp-coupon { background:#edf6f6; border-radius:.75rem; padding:.8rem; }
+.cp-confirm-card { max-width:720px; margin:auto; }
+.cp-confirm-hero { background:var(--cp-success); color:#fff; padding:2rem; text-align:center; }
+.cp-confirm-hero h1, .cp-confirm-hero p { color:#fff; }
+.cp-confirm-icon { display:grid; place-items:center; margin:0 auto 1rem; width:70px; height:70px; border-radius:50%; background:rgba(255,255,255,.18); }
+
+@media (max-width: 767.98px) {
+  .cp-navbar { align-items:flex-start; flex-direction:column; }
+  .cp-nav-links { width:100%; gap:.2rem; }
+  .cp-nav-link { padding:.42rem .55rem; }
+  .cp-page-head { align-items:flex-start; flex-direction:column; }
+  .cp-checkout-grid { grid-template-columns:1fr; }
+  .cp-summary-card { position:static; }
+  .cp-stay-card { grid-template-columns:1fr; }
+  .cp-stay-card img { height:180px; min-height:0; }
+}
