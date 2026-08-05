@@ -272,7 +272,7 @@ function Home() {
                 <option value="">Select time</option>
                 {TIME_SLOTS.map((time) => (
                   <option key={time} value={time}>
-                    {t}
+                    {time}
                   </option>
                 ))}
               </select>
