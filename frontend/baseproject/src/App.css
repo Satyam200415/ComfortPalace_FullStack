@@ -1131,19 +1131,43 @@
 }
 
 .cp-booking-rate-pills button {
-  border: 0;
-  border-radius: 999px;
+  border: 1px solid #e8edf4;
+  border-radius: 0.65rem;
   padding: 0.75rem 0.95rem;
-  background: #f4f7fb;
+  background: #fff;
   color: #1f2a38;
   font-weight: 700;
   cursor: pointer;
-  transition: transform 160ms ease, background 160ms ease;
+  transition: transform 160ms ease, background 160ms ease, border-color 160ms ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
 }
 
 .cp-booking-rate-pills button:hover {
   transform: translateY(-1px);
-  background: #e8eef7;
+  background: #f8fafc;
+  border-color: #d6e1f2;
+}
+
+.cp-booking-rate-pills button.cp-price-box-active {
+  background: linear-gradient(120deg, #fdbb2d, #f29900);
+  color: #1f2a38;
+  border-color: #f29900;
+}
+
+.cp-booking-rate-pills button strong {
+  font-size: 1.05rem;
+}
+
+.cp-booking-rate-pills button span {
+  font-size: 0.75rem;
+  color: #6a7a88;
+}
+
+.cp-booking-rate-pills button.cp-price-box-active span {
+  color: #1f2a38;
 }
 
 .cp-booking-summary {
@@ -1189,16 +1213,6 @@
 .cp-booking-summary-body p {
   margin: 0;
   font-size: 0.95rem;
-  color: #5c6b7f;
-}
-
-.cp-booking-summary-date {
-  display: grid;
-  grid-template-columns: 1.15fr 1fr;
-  gap: 0;
-  padding: 0;
-  overflow: hidden;
-  background: #fff;
   border: 1px solid #dfe2e8;
   border-radius: .75rem;
 }
@@ -1213,13 +1227,16 @@
 .cp-booking-summary-date label { position: relative; padding: .65rem .85rem; font-size: .78rem; }
 .cp-booking-summary-date label + label { border-left: 1px solid #dfe2e8; }
 
-.cp-booking-summary-date input { min-width: 0; border: 0; background: transparent; color: #172b3d; font: inherit; font-weight: 800; cursor: pointer; }
+.cp-booking-summary-date input { min-width: 0; border: 0; background: transparent; color: #172b3d; font: inherit; font-weight: 800; cursor: pointer; padding: 0.25rem 0.5rem; border-radius: 0.3rem; }
+.cp-booking-summary-date input:hover { background: rgba(0,0,0,0.05); }
 .cp-booking-summary-date label:first-child { cursor: pointer; }
 .cp-booking-summary-date label:first-child input { position: relative; z-index: 2; width: 100%; height: auto; opacity: 1; cursor: pointer; }
 .cp-booking-summary-date label:first-child strong { pointer-events: none; }
 
 .cp-booking-summary-date strong {
   color: #172b3d;
+  font-weight: 800;
+  font-size: 0.9rem;
 }
 
 .cp-booking-rate-list {

@@ -32,6 +32,9 @@ export default function Payment() {
     return { taxes, convenience, discount, total: price + taxes + convenience - discount }
   }, [price, paymentMethod, couponApplied])
 
+  // Validate guest details exist - check after all hooks are called
+  const hasValidGuestDetails = booking && guestDetails.name && guestDetails.email && guestDetails.phone
+
   const resetProcessing = () => {
     setProcessing(false)
     isProcessingRef.current = false
@@ -151,9 +154,9 @@ export default function Payment() {
         order_id: orderResponse.data.orderId,
         handler: handlePaymentSuccess,
         prefill: {
-          name: guestDetails?.name || '',
-          email: guestDetails?.email || '',
-          contact: guestDetails?.phone || ''
+          name: guestDetails?.name?.trim() || '',
+          email: guestDetails?.email?.trim() || '',
+          contact: guestDetails?.phone?.trim() || ''
         },
         theme: {
           color: '#f97316'
@@ -253,6 +256,8 @@ export default function Payment() {
   }
 
   if (!booking) return <main className="min-h-[55vh] bg-slate-50 px-4 py-16"><section className="mx-auto max-w-md rounded-3xl bg-white p-8 text-center shadow-xl shadow-slate-200/60"><h1 className="text-2xl font-bold text-slate-900">No booking selected</h1><p className="mt-3 text-slate-600">Please choose a room before continuing to payment.</p><Link className="mt-6 inline-flex rounded-xl bg-orange-500 px-5 py-3 font-bold text-white" to="/hotels-in">Browse hotels</Link></section></main>
+
+  if (!hasValidGuestDetails) return <main className="min-h-[55vh] bg-slate-50 px-4 py-16"><section className="mx-auto max-w-md rounded-3xl bg-white p-8 text-center shadow-xl shadow-slate-200/60"><h1 className="text-2xl font-bold text-slate-900">Missing guest details</h1><p className="mt-3 text-slate-600">Please complete guest details before proceeding to payment.</p><button type="button" onClick={() => navigate(-1)} className="mt-6 inline-flex rounded-xl bg-orange-500 px-5 py-3 font-bold text-white">Go back</button></section></main>
 
   return <main className="min-h-screen bg-[#fffaf5] px-4 py-8 text-slate-800 sm:px-6 lg:py-12">
     <div className="mx-auto max-w-6xl">

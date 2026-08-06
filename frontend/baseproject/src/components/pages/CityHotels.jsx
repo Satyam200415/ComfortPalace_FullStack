@@ -983,10 +983,10 @@ function CityHotels() {
                       <div className="cp-results-pricing-row">
                         <div className="cp-results-price-list">
                           {hotel.pricing.map((option) => (
-                            <article key={option.duration} className="cp-price-box">
+                            <Link key={option.duration} className="cp-price-box" to={`/hotels/${hotel.id}?duration=${encodeURIComponent(option.duration)}`}>
                               <strong>{option.price}</strong>
                               <span>{option.duration}</span>
-                            </article>
+                            </Link>
                           ))}
                           <article className="cp-price-box cp-price-box-unavailable">
                             <strong>Unavailable</strong>
