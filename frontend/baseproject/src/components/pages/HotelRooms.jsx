@@ -87,6 +87,7 @@ export default function HotelRooms() {
     const diffMs = checkOut - checkIn
     const totalHours = Math.max(0, diffMs / (1000 * 60 * 60))
     const hours = Math.floor(totalHours)
+    console.log()
     const minutes = Math.round((totalHours - hours) * 60)
     return { hours, minutes, totalHours }
   }, [checkInDate, checkInTime, checkOutDate, checkOutTime])
